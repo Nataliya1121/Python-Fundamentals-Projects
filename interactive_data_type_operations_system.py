@@ -11,12 +11,11 @@ while True:
         answer = input("You saw all four data types! Do you want to continue? Type Yes/No: ")
         if answer == "Yes":
             choice_one_counter = choice_two_counter = choice_three_counter = choice_four_counter = 0
-            continue
         elif answer == "No":
             print("GOODBYE!")
             break
         else:
-            print("INVALID ANSWER!")
+            print("INVALID ANSWER! Type only Yes or No.")
             continue
     # Get the user's choice and store it in a variable
     choice = input("Enter the number of your choice (1-4): ")
@@ -48,14 +47,34 @@ while True:
         choice_two_counter = 1
         print(f"You chose Numbers!")
         # Prompt the user to input two numbers, e.g., num1 and num2.
-        first_num = int(input(f"Input first number: "))
-        second_num = int(input(f"Input second number: "))
-        # Perform and print the results of addition, subtraction, multiplication, and division.
-
-        # Handle division by zero (e.g., print an error message if num2 is zero).
-
+        while True:
+            try:
+                first_num = int(input(f"Input first number: "))
+                second_num = int(input(f"Input second number: "))
+                # Perform and print the results of addition, subtraction, multiplication, and division.
+                print(f"Addition: {(first_num + second_num):.1f}")
+                print(f"Subtraction: {(first_num - second_num):.1f}")
+                print(f"Multiplication: {(first_num * second_num):.1f}")
+                # # Handle division by zero (e.g., print an error message if num2 is zero).
+                # try:
+                #     print(f"Division: {(first_num / second_num):.1f}")
+                #     break
+                # except ZeroDivisionError:
+                #     print("ERROR! You cannot divide by zero!")
+                #     # Perform a power operation, raising num1 to the power of num2, and print the result.
+                #     print(f"{first_num} raised to the power of {second_num} is: {(first_num ** second_num):.1f}")
+                # Handle division by zero (e.g., print an error message if num2 is zero).
+                if second_num != 0:
+                    print(f"Subtraction: {(first_num / second_num):.1f}")
+                    break
+                elif second_num == 0:
+                    print(f"INVALID SECOND NUMBER! You cannot divide by zero!")
+                    # Perform a power operation, raising num1 to the power of num2, and print the result.
+                    print(f"{first_num} raised to the power of {second_num} is: {(first_num ** second_num):.1f}")
+            except ValueError:
+                print("ERROR! Please enter valid numeric values.")
         # Perform a power operation, raising num1 to the power of num2, and print the result.
-
+        print(f"{first_num} raised to the power of {second_num} is: {(first_num ** second_num):.1f}")
     # If the user chooses Booleans (choice == '3'):
     elif choice == '3':
         choice_three_counter = 1
