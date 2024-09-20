@@ -22,7 +22,8 @@ while True:
     # If the user chooses Strings (choice == '1'):
     if choice == '1':
         choice_one_counter = 1
-        print(f"You chose Strings!")
+        print("****** You chose Strings! ******")
+        print()
         # Declare a string variable, e.g., sentence = "Learning Python is fun!"
         sentence = "I am learning Python now!"
         print(f"Example sentence: {sentence}")
@@ -45,13 +46,14 @@ while True:
     # If the user chooses Numbers (choice == '2'):
     elif choice == '2':
         choice_two_counter = 1
-        print(f"You chose Numbers!")
+        print("****** You chose Numbers! ******")
+        print()
         # Prompt the user to input two numbers, e.g., num1 and num2.
         while True:
             try:
                 first_num = int(input(f"Input first number: "))
                 second_num = int(input(f"Input second number: "))
-                # Perform and print the results of addition, subtraction, multiplication, and division.
+                # Perform and print the results of addition, subtraction, multiplication, division and modular division.
                 print(f"Addition: {(first_num + second_num):.1f}")
                 print(f"Subtraction: {(first_num - second_num):.1f}")
                 print(f"Multiplication: {(first_num * second_num):.1f}")
@@ -66,6 +68,7 @@ while True:
                 # Handle division by zero (e.g., print an error message if num2 is zero).
                 if second_num != 0:
                     print(f"Subtraction: {(first_num / second_num):.1f}")
+                    print(f"Modular divisions: {(first_num % second_num):.1f}")
                     break
                 elif second_num == 0:
                     print(f"INVALID SECOND NUMBER! You cannot divide by zero!")
@@ -78,7 +81,8 @@ while True:
     # If the user chooses Booleans (choice == '3'):
     elif choice == '3':
         choice_three_counter = 1
-        print(f"You chose Booleans!")
+        print("****** You chose Booleans! ******")
+        print()
         # Declare two boolean variables, e.g., is_python_fun = True, is_sunny = False.
         is_python_easy = True
         is_python_difficult = False
@@ -117,25 +121,48 @@ while True:
     # If the user chooses Additional Data Types (choice == '4'):
     elif choice == '4':
         choice_four_counter = 1
-        print(f"You chose Additional Data Types!")
-        print("* List")
-        print("* Tuple")
-        print("* Dictionary")
+        print("****** You chose Additional Data Types! ******")
+        print()
+        print("****** List ******")
+        # Create a list with mixed data types (e.g., numbers, strings, booleans).
+        list_of_mixed_data_types = [1, "Python", True, 2, False, 3]
+        print(f"Example List: {list_of_mixed_data_types}")
+        # Append a new element to the list and print the updated list.
+        list_of_mixed_data_types.append("JS")
+        print(f"Updated List with a new added element: {list_of_mixed_data_types}")
+        # Access and print the 4th element in the list.
+        print(f"The 4th element in the new List is: {list_of_mixed_data_types[3]}")
+        # Print the index of element True and False.
+        index_of_true = next(i for i, x in enumerate(list_of_mixed_data_types) if x is True and type(x) is bool)
+        index_of_false = next(i for i, x in enumerate(list_of_mixed_data_types) if x is False and type(x) is bool)
+        print(f"The index of element True is: {index_of_true}")
+        print(f"The index of element False is: {index_of_false}")
+        # Print the index of element 2 and "Python".
+        print(f"The index of element 2 is: {list_of_mixed_data_types.index(2)}")
+        index_of_python = list_of_mixed_data_types.index("Python")
+        print(f"The index of element \"Python\" is: {index_of_python}")
+        # Change the last item and fifth item:
+        list_of_mixed_data_types[-1] = "C#"
+        print(f"Updated List with replaced \"JS\" element to \"C#\" is: {list_of_mixed_data_types}")
+        list_of_mixed_data_types[4] = True
+        print(f"Updated List with replaced False element to True is: {list_of_mixed_data_types}")
+        # Remove C# and True:
+        list_of_mixed_data_types.remove("C#")
+        # list_of_mixed_data_types = [1, "Python", True, 2, True, 3]
+        list_of_mixed_data_types.pop(2)
+        # list_of_mixed_data_types = [1, "Python", 2, True, 3]
+        list_of_mixed_data_types.pop(3)
+        print(f"Updated List with removed elements \"C#\" and True is: {list_of_mixed_data_types}")
+        print()
+        print("****** Tuple ******")
+        # Create a tuple with some string elements (e.g., fruits).
 
-    # ### List Operations ###
-    # Create a list with mixed data types (e.g., numbers, strings, booleans).
+        # Print the length of the tuple.
 
-    # Append a new element to the list and print the updated list.
+        # Try to modify one element in the tuple and handle the resulting TypeError.
 
-    # Access and print the 4th element in the list.
-
-    # ### Tuple Operations ###
-    # Create a tuple with some string elements (e.g., fruits).
-
-    # Print the length of the tuple.
-
-    # Try to modify one element in the tuple and handle the resulting TypeError.
-
+        print("****** Dictionary ******")
+        print()
     # ### Dictionary Operations ###
     # Create a dictionary with some key-value pairs (e.g., name, age, city).
 
