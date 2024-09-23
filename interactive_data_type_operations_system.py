@@ -57,23 +57,24 @@ while True:
                 print(f"Addition: {(first_num + second_num):.1f}")
                 print(f"Subtraction: {(first_num - second_num):.1f}")
                 print(f"Multiplication: {(first_num * second_num):.1f}")
-                # # Handle division by zero (e.g., print an error message if num2 is zero).
-                # try:
-                #     print(f"Division: {(first_num / second_num):.1f}")
-                #     break
-                # except ZeroDivisionError:
-                #     print("ERROR! You cannot divide by zero!")
-                #     # Perform a power operation, raising num1 to the power of num2, and print the result.
-                #     print(f"{first_num} raised to the power of {second_num} is: {(first_num ** second_num):.1f}")
                 # Handle division by zero (e.g., print an error message if num2 is zero).
-                if second_num != 0:
-                    print(f"Subtraction: {(first_num / second_num):.1f}")
+                try:
+                    print(f"Division: {(first_num / second_num):.1f}")
                     print(f"Modular divisions: {(first_num % second_num):.1f}")
                     break
-                elif second_num == 0:
-                    print(f"INVALID SECOND NUMBER! You cannot divide by zero!")
+                except ZeroDivisionError:
+                    print("ERROR! You cannot divide by zero! Please enter a non-zero value for the second number.")
                     # Perform a power operation, raising num1 to the power of num2, and print the result.
                     print(f"{first_num} raised to the power of {second_num} is: {(first_num ** second_num):.1f}")
+                # # Handle division by zero (e.g., print an error message if num2 is zero).
+                # if second_num != 0:
+                #     print(f"Subtraction: {(first_num / second_num):.1f}")
+                #     print(f"Modular divisions: {(first_num % second_num):.1f}")
+                #     break
+                # elif second_num == 0:
+                #     print(f"INVALID SECOND NUMBER! You cannot divide by zero!")
+                #     # Perform a power operation, raising num1 to the power of num2, and print the result.
+                #     print(f"{first_num} raised to the power of {second_num} is: {(first_num ** second_num):.1f}")
             except ValueError:
                 print("ERROR! Please enter valid numeric values.")
         # Perform a power operation, raising num1 to the power of num2, and print the result.
@@ -156,20 +157,30 @@ while True:
         print()
         print("****** Tuple ******")
         # Create a tuple with some string elements (e.g., fruits).
-
+        tuple_with_string_elements = ("Python", "JS", "C#", "Java")
+        print(f"Example Tuple: {tuple_with_string_elements}")
         # Print the length of the tuple.
-
+        print(f"The length of the Tuple is: {len(tuple_with_string_elements)}")
+        # Print the second element of the tuple.
+        print(f"The 2nd element in the Tuple is: {tuple_with_string_elements[1]}")
         # Try to modify one element in the tuple and handle the resulting TypeError.
-
-        print("****** Dictionary ******")
+        try:
+            tuple_with_string_elements[0] = "C++"
+        except TypeError as error:
+            print(f"Updated Tuple with replaced \"Python\" element to \"C++\" is: TypeError: {error}"
+                  f"\nTuples are unchangeable, "
+                  f"meaning that you cannot change, add or remove items after the "
+                  f"tuple has been created.")
         print()
-    # ### Dictionary Operations ###
-    # Create a dictionary with some key-value pairs (e.g., name, age, city).
-
-    # Access and print the value for one of the keys (e.g., "age").
-
-    # Add a new key-value pair to the dictionary and print the updated dictionary.
-
+        print("****** Dictionary ******")
+        # Create a dictionary with some key-value pairs (e.g., name, age, city).
+        dictionary_pairs = {"vehicle": "car", "model": "bmw", "year": "2018", "color": "grey"}
+        print(f"Example Dictionary with key-value pairs: {dictionary_pairs}")
+        # Access and print the value for one of the keys (e.g., "age").
+        print(f"The value of key \"year\" in the Dictionary is: {dictionary_pairs['year']}")
+        # Add a new key-value pair to the dictionary and print the updated dictionary.
+        dictionary_pairs.update({"engine": "325"})
+        print(f"Updated Dictionary with a new added key-value pair is: {dictionary_pairs}")
     # If the user enters an invalid choice:
     else:
         # Print an error message indicating an invalid selection.
